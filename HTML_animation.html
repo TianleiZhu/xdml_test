@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>浏览器渲染原理</h1>
+    <ul>
+        <li>根据HTML构建HTML树（DOM）</li>
+        <li>根据CSS构建CSS树（CSSOM）</li>
+        <li>将两棵树合并成一颗渲染树（render tree）</li>
+        <li>Layout布局（文档流、盒模型、计算大小和位置）</li>
+        <li>Paint绘制（把边框颜色、文字颜色、阴影等画出来）</li>
+        <li>Compose合成（根据层叠关系展示画面）</li>
+    </ul>
+    <h1>CSS动画的两种做法</h1>
+    <h2>transition</h2>
+    四个常用功能：
+    <ul>
+        <li>位移 translate</li>
+        <li>缩放 scale</li>
+        <li>旋转 rotate</li>
+        <li>倾斜 skew</li>
+    </ul>
+    <h2>animation</h2>
+    animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;
+</body>
+</html>
