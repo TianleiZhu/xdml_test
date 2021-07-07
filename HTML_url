@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>URL包含哪几部分，每部分分别有什么作用？</h1>
+    <dl>
+        <dt>协议</dt>
+        <dd>定义传输协议，http/https</dd>
+        <dt>域名/IP</dt>
+        <dd>服务器的定位位置</dd>
+        <dt>端口</dt>
+        <dd>同一服务器可以提供多个服务端口，http默认端口80，https默认端口443</dd>
+        <dt>路径</dt>
+        <dd>请求不同页面</dd>
+        <dt>查询参数</dt>
+        <dd>同一页面，请求不同内容</dd>
+        <dt>锚点</dt>
+        <dd>文档内部位置</dd>
+
+    </dl>
+    <h1>DNS的作用是什么，nslookup命令怎么用？</h1>
+    <ul>
+        <li>将域名和IP联系起来</li>
+        <li>
+            nslookup + 域名
+        </li>
+    </ul>
+    <h1>IP的作用是什么，ping命令怎么用？</h1>
+    <ul>
+        <li>对网络设备进行定位。</li>
+        <li>ping + IP/域名</li>
+    </ul>
+    <h1>域名是什么，分别哪几类域名？</h1>
+    <ul>
+        <li>域名是IP的别称</li>
+        <li>顶级域名、二级域名、三级域名</li>
+    </ul>
+</body>
+</html>
