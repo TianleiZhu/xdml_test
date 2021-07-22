@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="board" style="border: 1px #ccc solid;"></canvas>
+    <span id="point"></span>
+    <script>
+        var canvas = document.getElementById('board');
+        var context = canvas.getContext('2d');
+        var current = {
+            color: 'black',//<===画笔颜色配置
+            width: 1//线条宽度 
+        };
+        var drawing = false;//<===是否绘制
+        //获取点坐标
+        function getPoint(e) {
+            if (e.touches && e.touches.length > 0) {
+                var touch = e.touches[0];
+                return { x: touch.pageX, y: touch.pageY };
+            }
+            return { x: e.clientX, y: e.clientY };
+        }
+        //线条绘制
+        function drawLine(x0, y0, x1, y1, color, width) {
+            context.beginPath();
+            context.moveTo(x0, y0);
+            context.lineTo(x1, y1);
+            context.strokeStyle = color;
+            context.lineWidth = width; 
+            context.stroke();
+            context.closePath();
+        }
+        //鼠标按下
+        function onMouseDown(e) {
+            drawing = true;
+            //记录按下点
+            var p = getPoint(e);
+            current.x = p.x;
+            current.y = p.y;
+        }
+        //鼠标弹起
+        function onMouseUp(e) {
+            if (!drawing) { return; }
+            drawing = false;
+            //绘制结束点
+            var p = getPoint(e);
+            drawLine(current.x, current.y, p.x, p.y, current.color, current.width);
+        }
+        //鼠标移动
+        function onMouseMove(e) {
+            if (!drawing) { return; }
+            var p = getPoint(e);
+            document.getElementById("point").innerHTML = p.x + "-" + p.y;
+            //移动绘制
+            drawLine(current.x, current.y, p.x, p.y, current.color, current.width);
+            current.x = p.x;
+            current.y = p.y;
+        }
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.addEventListener('mousedown', onMouseDown, false);
+        canvas.addEventListener('mouseup', onMouseUp, false);
+        canvas.addEventListener('mouseout', onMouseUp, false);
+        canvas.addEventListener('mousemove', onMouseMove, false);
+
+        canvas.addEventListener('touchstart', onMouseDown, false);
+        canvas.addEventListener('touchend', onMouseUp, false);
+        canvas.addEventListener('touchmove', onMouseMove, false);
+    </script>
+</body>
+
+</html>
